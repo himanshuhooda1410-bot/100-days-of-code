@@ -1,0 +1,26 @@
+//Q5: Write a program to convert temperature from Celsius to Fahrenheit
+
+#include<stdio.h>
+int main()
+{
+    float c = 37.0,f;
+    f=((9.0/5.0)*c)+32.0;
+    printf("the temperature in fahrenheit is %f",f);
+        return 0;
+}
+
+
+
+//Q6: Write a program to swap two numbers using a third variable
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 10, temp;
+
+    // Swapping values of a and  b
+    temp = a;
+    a = b;
+    b = temp;
+    printf("a = %d, b = %d\n", a, b);
+    return 0;
+}
