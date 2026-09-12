@@ -1,0 +1,76 @@
+//Q19: Write a program to classify a triangle as Equilateral, Isosceles, or Scalene based on its side lengths.
+
+#include <stdio.h>
+ 
+int main()
+{
+   int a, b, c;
+ 
+   printf("Enter three sides: ");
+   scanf("%d %d %d", &a, &b, &c);
+ 
+   if (a == b && b == c)           // first condition
+   {
+       printf("Equilateral triangle\n");
+   }
+   else if (a == b || b == c || a == c)        // second condition
+   {
+       printf("Isosceles triangle\n");
+   }
+   else
+   {
+       printf("Scalene triangle\n");
+   }
+ 
+   return 0;
+}
+
+
+
+//Q20: Write a program to display the day of the week based on a number (1–7) using switch-case.
+
+#include <stdio.h>
+ 
+int main()
+{
+   int day;
+ 
+   printf("Enter day number (1-7): ");
+   scanf("%d", &day);
+ 
+   switch (day)
+   {
+       case 1:
+           printf("Monday\n");
+           break;
+ 
+       case 2:
+           printf("Tuesday\n");
+           break;
+ 
+       case 3:
+           printf("Wednesday\n");
+           break;
+ 
+       case 4:
+           printf("Thursday\n");
+           break;
+ 
+       case 5:
+           printf("Friday\n");
+           break;
+ 
+       case 6:
+           printf("Saturday\n");
+           break;
+ 
+       case 7:
+           printf("Sunday\n");
+           break;
+ 
+       default:                               // the default case(it is printed if none of the cases are true)
+           printf("Invalid day number\n");
+   }
+ 
+   return 0;
+}
