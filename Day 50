@@ -1,0 +1,47 @@
+
+#include <stdio.h>
+
+int main() {
+    char date[20];
+    char day[3], month[3], year[5];
+
+    printf("Enter date (dd/04/yyyy): ");
+    scanf("%19s", date);
+
+    sscanf(date, "%2[^/]/%2[^/]/%4s", day, month, year);
+
+    if (month[0] == '0' && month[1] == '4') {
+        printf("%s-Apr-%s", day, year);
+    } else {
+        printf("Invalid month");
+    }
+
+    return 0;
+}
+
+Q.100
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+
+    printf("Enter a string: ");
+    scanf("%99s", str);
+
+    int n = strlen(str);
+
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+
+            for (int k = i; k <= j; k++) {
+                printf("%c", str[k]);
+            }
+
+            printf("\n");
+        }
+    }
+
+    return 0;
+}

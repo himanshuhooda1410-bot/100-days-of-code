@@ -1,0 +1,85 @@
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char a[1000], b[1000];
+    int freq[256] = {0};
+    int flag = 1;
+
+    fgets(a, sizeof(a), stdin);
+    fgets(b, sizeof(b), stdin);
+
+    for (int i = 0; a[i] != '\0'; i++) {
+        unsigned char ch = (unsigned char)a[i];
+
+        if (ch != ' ' && ch != '\n') {
+            freq[tolower(ch)]++;
+        }
+    }
+
+    for (int i = 0; b[i] != '\0'; i++) {
+        unsigned char ch = (unsigned char)b[i];
+
+        if (ch != ' ' && ch != '\n') {
+            freq[tolower(ch)]--;
+        }
+    }
+
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] != 0) {
+            flag = 0;
+            break;
+        }
+    }
+
+    if (flag)
+        printf("Anagrams\n");
+    else
+        printf("Not Anagrams\n");
+
+    return 0;
+}
+
+Q.94
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[1000];
+    char longest[1000];
+    int maxLen = 0, len = 0, start = 0;
+
+    fgets(str, sizeof(str), stdin);
+
+    for (int i = 0; ; i++) {
+        if (str[i] != '\0' && !isspace((unsigned char)str[i])) {
+            len++;
+        }
+        else {
+            if (len > maxLen) {
+                maxLen = len;
+
+                for (int j = 0; j < len; j++) {
+                    longest[j] = str[start + j];
+                }
+
+                longest[len] = '\0';
+            }
+
+            if (str[i] == '\0')
+                break;
+
+            len = 0;
+            start = i + 1;
+        }
+    }
+
+    if (maxLen > 0)
+        printf("Longest word = %s\n", longest);
+    else
+        printf("No word found\n");
+
+    return 0;
+}
